@@ -1,0 +1,240 @@
+{
+  "fonts": [
+    {
+      "family": "Changa",
+      "weight": "500",
+      "subset": "arabic",
+      "file": "Changa-500-arabic.woff2",
+      "bytes": 23076
+    },
+    {
+      "family": "Changa",
+      "weight": "500",
+      "subset": "latin",
+      "file": "Changa-500-latin.woff2",
+      "bytes": 23064
+    },
+    {
+      "family": "Changa",
+      "weight": "600",
+      "subset": "arabic",
+      "file": "Changa-600-arabic.woff2",
+      "bytes": 23076
+    },
+    {
+      "family": "Changa",
+      "weight": "600",
+      "subset": "latin",
+      "file": "Changa-600-latin.woff2",
+      "bytes": 23064
+    },
+    {
+      "family": "Changa",
+      "weight": "700",
+      "subset": "arabic",
+      "file": "Changa-700-arabic.woff2",
+      "bytes": 23076
+    },
+    {
+      "family": "Changa",
+      "weight": "700",
+      "subset": "latin",
+      "file": "Changa-700-latin.woff2",
+      "bytes": 23064
+    },
+    {
+      "family": "Changa",
+      "weight": "800",
+      "subset": "arabic",
+      "file": "Changa-800-arabic.woff2",
+      "bytes": 23076
+    },
+    {
+      "family": "Changa",
+      "weight": "800",
+      "subset": "latin",
+      "file": "Changa-800-latin.woff2",
+      "bytes": 23064
+    },
+    {
+      "family": "Rakkas",
+      "weight": "400",
+      "subset": "arabic",
+      "file": "Rakkas-400-arabic.woff2",
+      "bytes": 26040
+    },
+    {
+      "family": "Rakkas",
+      "weight": "400",
+      "subset": "latin",
+      "file": "Rakkas-400-latin.woff2",
+      "bytes": 18632
+    },
+    {
+      "family": "Almarai",
+      "weight": "300",
+      "subset": "arabic",
+      "file": "Almarai-300-arabic.woff2",
+      "bytes": 29564
+    },
+    {
+      "family": "Almarai",
+      "weight": "300",
+      "subset": "latin",
+      "file": "Almarai-300-latin.woff2",
+      "bytes": 18292
+    },
+    {
+      "family": "Almarai",
+      "weight": "400",
+      "subset": "arabic",
+      "file": "Almarai-400-arabic.woff2",
+      "bytes": 31672
+    },
+    {
+      "family": "Almarai",
+      "weight": "400",
+      "subset": "latin",
+      "file": "Almarai-400-latin.woff2",
+      "bytes": 17468
+    },
+    {
+      "family": "Almarai",
+      "weight": "700",
+      "subset": "arabic",
+      "file": "Almarai-700-arabic.woff2",
+      "bytes": 32912
+    },
+    {
+      "family": "Almarai",
+      "weight": "700",
+      "subset": "latin",
+      "file": "Almarai-700-latin.woff2",
+      "bytes": 17392
+    },
+    {
+      "family": "Almarai",
+      "weight": "800",
+      "subset": "arabic",
+      "file": "Almarai-800-arabic.woff2",
+      "bytes": 33328
+    },
+    {
+      "family": "Almarai",
+      "weight": "800",
+      "subset": "latin",
+      "file": "Almarai-800-latin.woff2",
+      "bytes": 19280
+    },
+    {
+      "family": "Space Grotesk",
+      "weight": "300",
+      "subset": "latin",
+      "file": "SpaceGrotesk-300-latin.woff2",
+      "bytes": 22288
+    },
+    {
+      "family": "Space Grotesk",
+      "weight": "400",
+      "subset": "latin",
+      "file": "SpaceGrotesk-400-latin.woff2",
+      "bytes": 22288
+    },
+    {
+      "family": "Space Grotesk",
+      "weight": "500",
+      "subset": "latin",
+      "file": "SpaceGrotesk-500-latin.woff2",
+      "bytes": 22288
+    },
+    {
+      "family": "Space Grotesk",
+      "weight": "700",
+      "subset": "latin",
+      "file": "SpaceGrotesk-700-latin.woff2",
+      "bytes": 22288
+    }
+  ],
+  "images": [
+    {
+      "file": "petra.jpg",
+      "query": "Petra Treasury Al Khazneh Jordan",
+      "title": "File:Petra, Jordan -The Treasury.JPG",
+      "width": 5184,
+      "height": 3456,
+      "license": "CC BY-SA 4.0",
+      "artist": "Davidchocron",
+      "bytes": 858764
+    },
+    {
+      "file": "wadi-rum.jpg",
+      "query": "Wadi Rum desert Jordan",
+      "title": "File:Wadi rum desert.jpg",
+      "width": 4608,
+      "height": 3456,
+      "license": "CC0",
+      "artist": "Peter Chisholm",
+      "bytes": 737391
+    },
+    {
+      "file": "jerash.jpg",
+      "query": "Jerash Jordan ruins",
+      "title": "File:Jerash Ruins view.jpg",
+      "width": 6016,
+      "height": 4016,
+      "license": "CC BY-SA 4.0",
+      "artist": "Abdul Baqi",
+      "bytes": 901630
+    },
+    {
+      "file": "dead-sea.jpg",
+      "query": "Dead Sea Jordan",
+      "title": "File:Dead Sea-Jordan.JPG",
+      "width": 4928,
+      "height": 3264,
+      "license": "CC BY-SA 4.0",
+      "artist": "Faris El-Gwely",
+      "bytes": 303618
+    },
+    {
+      "file": "concert.jpg",
+      "query": "concert stage lights crowd",
+      "title": "File:DSC 6184 A large crowd gathers on the beachfront at night colorful stage lights and city high-rises glowing in the background as people enjoy an outdoor concert or festival.jpg",
+      "width": 6048,
+      "height": 4024,
+      "license": "CC BY-SA 4.0",
+      "artist": "PattayaPatrol",
+      "bytes": 485978
+    },
+    {
+      "file": "dj.jpg",
+      "query": "DJ mixing console nightclub",
+      "title": "File:DFC 5183 Hands-on mixing a DJ tweaks levels and cues glowing controls on a Pioneer DJ mixer under red club lights.jpg",
+      "width": 5568,
+      "height": 3712,
+      "license": "CC BY-SA 4.0",
+      "artist": "PattayaPatrol",
+      "bytes": 378283
+    },
+    {
+      "query": "Jordanian wedding celebration",
+      "title": "File:Wedding of Crown Prince Hussein bin Abdullah and Rajwa Al Saif.mpg",
+      "width": 2160,
+      "height": 3840,
+      "license": "CC BY 3.0",
+      "artist": "Joud Al-Nsour",
+      "file": "wedding.jpg",
+      "bytes": 633917
+    },
+    {
+      "file": "petra-night.jpg",
+      "query": "Petra by night candles",
+      "title": "File:Petra by Night - Candles.jpg",
+      "width": 4000,
+      "height": 3000,
+      "license": "CC BY 2.0",
+      "artist": "krebsmaus07",
+      "bytes": 413008
+    }
+  ]
+}

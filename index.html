@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inspiration Vibes — Event Management & DJ Collective · Amman, Jordan</title>
+<meta name="description" content="Inspiration Vibes is an Amman-based event management and DJ collective. We plan, produce and soundtrack Jordan's boldest nights — weddings, festivals, corporate and private events.">
+<meta name="theme-color" content="#0B0908">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+/* ============================================================
+   INSPIRATION VIBES — design system
+   Dark desert-night canvas · Petra rose · sand ink · flag red
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0B0908;
+  --bg-2:#100C0A;
+  --surface:#16110D;
+  --surface-2:#1E1712;
+  --line:rgba(230,215,190,.14);
+  --line-strong:rgba(230,215,190,.26);
+  --ink:#F5EEE4;
+  --muted:#AEA396;
+  --sand:#E6D7BE;
+  --rose:#E07A4B;
+  --rose-2:#EB8B5E;
+  --rose-deep:#B8552F;
+  --red:#CE1126;
+  --green:#3E9B63;
+  --gold:#D9A441;
+  --radius:18px;
+  --radius-lg:26px;
+  --container:1200px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Space Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+body.no-scroll{overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--rose);color:#1A120B}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#2A211A;border-radius:99px;border:2px solid var(--bg)}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:6px}
+
+/* ---------- typography ---------- */
+h1,h2,h3,.display{
+  font-family:'Changa','Space Grotesk',sans-serif;
+  font-weight:800;line-height:.92;letter-spacing:-.02em;text-transform:uppercase;
+}
+.ar{font-family:'Rakkas',serif;font-weight:400;line-height:1.3}
+.ar-body{font-family:'Almarai',sans-serif}
+.eyebrow{
+  display:flex;align-items:center;gap:.8rem;
+  font-size:.76rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--rose);margin-bottom:1.2rem;
+}
+.eyebrow::before{content:"";width:2.4rem;height:1px;background:var(--rose);flex:none}
+.eyebrow .ar{font-size:1.05rem;letter-spacing:0;color:var(--sand);text-transform:none}
+.lead{color:var(--muted);font-size:clamp(1.02rem,1.4vw,1.18rem);max-width:56ch}
+.section-title{font-size:clamp(2.2rem,5vw,3.9rem);margin-bottom:1.4rem}
+.section-title .accent{color:var(--rose)}
+.ar-accent{color:var(--rose)}
+
+/* ---------- layout ---------- */
+.container{width:min(100% - 3rem,var(--container));margin-inline:auto}
+.section{padding:clamp(4.5rem,9vw,8.5rem) 0;position:relative}
+.svg-defs{position:absolute;width:0;height:0;overflow:hidden}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.95rem 1.7rem;border-radius:999px;
+  font:inherit;font-weight:600;font-size:.95rem;letter-spacing:.02em;
+  text-decoration:none;cursor:pointer;border:1px solid transparent;
+  min-height:50px;transition:transform .3s var(--ease),background .3s,color .3s,border-color .3s,box-shadow .3s;
+}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--rose);color:#1A120B}
+.btn-primary:hover{background:var(--rose-2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(224,122,75,.28)}
+.btn-ghost{background:rgba(255,255,255,.03);border-color:rgba(230,215,190,.6);color:var(--sand)}
+.btn-ghost:hover{border-color:var(--sand);background:rgba(255,255,255,.05);transform:translateY(-2px)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;padding:1.15rem 0;transition:background .4s,border-color .4s,padding .4s}
+.nav.scrolled{background:rgba(11,9,8,.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:.7rem 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;flex:none}
+.brand-mark{width:40px;height:40px;flex:none}
+.brand-name{font-family:'Changa',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.05em;text-transform:uppercase;line-height:1;color:var(--ink)}
+.brand-name em{font-style:normal;display:block;color:var(--rose);font-size:.66rem;letter-spacing:.34em;margin-top:.2rem}
+.links{display:flex;gap:1.9rem}
+.links a{color:var(--muted);text-decoration:none;font-size:.93rem;letter-spacing:.02em;position:relative;transition:color .25s;padding:.3rem 0}
+.links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--rose);transition:width .3s var(--ease)}
+.links a:hover,.links a.active{color:var(--sand)}
+.links a:hover::after,.links a.active::after{width:100%}
+.nav-cta{padding:.7rem 1.35rem;min-height:44px;font-size:.88rem}
+.burger{display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--line-strong);background:rgba(255,255,255,.02);color:var(--sand);cursor:pointer;align-items:center;justify-content:center;flex:none}
+.burger svg{width:20px;height:20px}
+
+.mobile-menu{
+  position:fixed;inset:0;z-index:99;background:rgba(11,9,8,.97);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2rem;
+  opacity:0;pointer-events:none;transition:opacity .35s;
+}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu nav{display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+.mobile-menu nav a{font-family:'Changa',sans-serif;font-weight:700;font-size:2rem;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);text-decoration:none;transition:color .25s}
+.mobile-menu nav a:hover{color:var(--rose)}
+.mobile-menu .ar{font-size:1.4rem;color:var(--rose)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;display:flex;align-items:center;min-height:100svh;padding:9rem 0 6rem;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.48;filter:saturate(.85) contrast(1.05)}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(11,9,8,.97) 0%,rgba(11,9,8,.86) 42%,rgba(11,9,8,.5) 100%),
+    linear-gradient(0deg,var(--bg) 2%,transparent 34%),
+    radial-gradient(58% 58% at 74% 42%,rgba(224,122,75,.20),transparent 72%);
+}
+.hero-inner{position:relative;z-index:2;max-width:940px}
+.hero h1{font-size:clamp(2.9rem,7.6vw,6.4rem);letter-spacing:-.03em;line-height:.98}
+.hero h1 .line{display:block}
+.hero h1 .line + .line{margin-top:.05em}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:1.5px var(--sand)}
+.hero-ar{font-family:'Rakkas',serif;font-size:clamp(1.5rem,2.6vw,2.2rem);color:var(--rose);margin-top:1.1rem}
+.hero .lead{margin-top:1.7rem;max-width:52ch}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.6rem;margin-top:2.4rem;color:var(--muted);font-size:.88rem;letter-spacing:.04em}
+.hero-meta .dot{display:inline-flex;align-items:center;gap:.5rem;color:var(--sand)}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:none;animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(62,155,99,.65)}70%{box-shadow:0 0 0 9px rgba(62,155,99,0)}100%{box-shadow:0 0 0 0 rgba(62,155,99,0)}}
+
+.hero-art{position:absolute;right:1%;top:50%;transform:translateY(-50%);width:min(520px,42vw);z-index:1;display:grid;place-items:center}
+.vinyl{
+  width:100%;aspect-ratio:1;border-radius:50%;position:relative;
+  background:radial-gradient(circle at 34% 28%,#2A201A,#0D0A08 62%,#000 100%);
+  box-shadow:0 50px 110px rgba(0,0,0,.75),inset 0 0 0 1px rgba(255,255,255,.08);
+  animation:spin 24s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vinyl::before{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:repeating-radial-gradient(circle at 50% 50%,rgba(255,255,255,.07) 0 1px,transparent 1px 5px);
+  -webkit-mask:radial-gradient(circle,transparent 0 26%,#000 27% 100%);
+          mask:radial-gradient(circle,transparent 0 26%,#000 27% 100%);
+}
+.vinyl::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 215deg,transparent 0 42%,rgba(255,255,255,.08) 50%,transparent 58% 100%);
+}
+.vinyl-label{
+  position:absolute;inset:26%;border-radius:50%;
+  background:radial-gradient(circle at 50% 38%,var(--rose-2),var(--rose-deep));
+  display:grid;place-items:center;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),inset 0 -8px 24px rgba(0,0,0,.3);
+}
+.vinyl-label svg{width:58%;height:58%;fill:#1A120B}
+.vinyl-hole{
+  position:absolute;top:50%;left:50%;width:3.4%;aspect-ratio:1;border-radius:50%;
+  background:var(--bg);transform:translate(-50%,-50%);
+  box-shadow:0 0 0 3px var(--sand),0 0 0 5px rgba(0,0,0,.45);
+}
+.hero-eq{position:absolute;bottom:-8%;left:50%;transform:translateX(-50%);display:flex;align-items:flex-end;gap:4px;height:56px;opacity:.9}
+.scroll-cue{
+  position:absolute;left:50%;bottom:1.8rem;transform:translateX(-50%);z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:.55rem;
+  color:var(--sand);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;
+}
+.scroll-cue i{width:1px;height:40px;background:linear-gradient(var(--rose),transparent);transform-origin:top;animation:cue 1.9s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleY(.35);opacity:.35}50%{transform:scaleY(1);opacity:1}}
+
+/* equalizer */
+.eq{display:flex;align-items:flex-end;gap:4px;height:64px}
+.eq span{width:5px;border-radius:3px;background:linear-gradient(to top,var(--rose),var(--gold));height:18%;animation:eq 1s ease-in-out infinite alternate}
+.eq.paused span{animation-play-state:paused}
+@keyframes eq{from{height:10%}to{height:100%}}
+
+/* ---------- marquee ---------- */
+.marquee{border-block:1px solid var(--line);background:var(--bg-2);padding:1.15rem 0;overflow:hidden}
+.marquee-track{display:flex;width:max-content;animation:marquee 32s linear infinite}
+.marquee-group{display:flex;align-items:center;gap:2.6rem;padding-right:2.6rem}
+.marquee-group span{font-family:'Changa',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);white-space:nowrap}
+.marquee-group .ar{font-size:1.25rem;letter-spacing:0;text-transform:none;color:var(--sand)}
+.marquee-group svg{width:15px;height:15px;fill:var(--rose);flex:none}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.about-copy p{color:var(--muted);margin-bottom:1.1rem;max-width:58ch}
+.about-copy p strong{color:var(--sand);font-weight:600}
+.about-fig{position:relative}
+.about-fig .frame{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line)}
+.about-fig img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+.fig-cap{display:flex;justify-content:space-between;gap:1rem;margin-top:.9rem;color:var(--muted);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem;margin-top:clamp(3rem,6vw,5rem)}
+.pillar{border-top:1px solid var(--line-strong);padding-top:1.5rem;transition:border-color .3s}
+.pillar:hover{border-color:var(--rose)}
+.pillar .num{font-family:'Changa',sans-serif;font-weight:800;color:var(--rose);font-size:1rem;letter-spacing:.14em}
+.pillar h3{font-size:1.45rem;margin:.7rem 0 .6rem;letter-spacing:-.01em}
+.pillar p{color:var(--muted);font-size:.94rem}
+
+/* ---------- services ---------- */
+.services-list{margin-top:2.6rem;border-bottom:1px solid var(--line)}
+.service-row{
+  display:grid;grid-template-columns:70px 1.15fr 1.35fr auto;gap:1.4rem;align-items:center;
+  padding:2.1rem 1rem;border-top:1px solid var(--line);
+  transition:background .35s,padding .35s var(--ease);
+}
+.service-row:hover{background:linear-gradient(90deg,rgba(224,122,75,.09),transparent 70%);padding-left:1.6rem}
+.service-row .num{font-family:'Changa',sans-serif;font-weight:800;color:var(--rose);font-size:1rem;letter-spacing:.12em}
+.service-row h3{font-size:clamp(1.5rem,2.8vw,2.3rem);letter-spacing:-.015em}
+.service-row p{color:var(--muted);font-size:.96rem;max-width:46ch}
+.service-row .tags{justify-content:flex-end}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.tag{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line-strong);border-radius:999px;padding:.34rem .78rem;color:var(--sand);white-space:nowrap}
+.row-arrow{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;color:var(--sand);transition:.35s var(--ease);flex:none}
+.row-arrow svg{width:18px;height:18px}
+.service-row:hover .row-arrow{background:var(--rose);border-color:var(--rose);color:#1A120B;transform:rotate(-45deg)}
+
+/* ---------- events ---------- */
+.events-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.2rem;margin-top:3rem}
+.event-card{
+  position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:340px;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:1.7rem;
+  border:1px solid rgba(230,215,190,.2);isolation:isolate;
+}
+.event-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .9s var(--ease),filter .5s;filter:saturate(.85)}
+.event-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,9,8,.1) 0%,rgba(11,9,8,.88) 78%,rgba(11,9,8,.96) 100%)}
+.event-card:hover img{transform:scale(1.07);filter:saturate(1.05)}
+.span-7{grid-column:span 7}
+.span-5{grid-column:span 5}
+.event-card .kicker{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-bottom:.6rem}
+.event-card h3{font-size:clamp(1.6rem,2.6vw,2.2rem);margin-bottom:.5rem}
+.event-card p{color:#D8CEC2;font-size:.94rem;max-width:44ch}
+.event-card.tall{min-height:420px}
+.event-card.typographic{
+  background:
+    radial-gradient(80% 80% at 80% 10%,rgba(224,122,75,.16),transparent 60%),
+    linear-gradient(160deg,var(--surface-2),var(--bg-2));
+  align-items:flex-start;justify-content:space-between;
+}
+.event-card.typographic::after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 42%,rgba(11,9,8,.82) 90%);
+}
+.event-card.typographic>*{position:relative;z-index:1}
+.event-card.typographic .big{font-family:'Changa',sans-serif;font-weight:800;font-size:clamp(3rem,6vw,4.6rem);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;color:var(--sand)}
+.event-card.typographic .big em{font-style:normal;color:var(--rose)}
+.skyline{position:absolute;inset:auto 0 0 0;width:100%;height:34%;color:rgba(230,215,190,.10)}
+
+/* ---------- sound ---------- */
+.sound-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.genre-tags{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.8rem}
+.genre-tags .tag{padding:.5rem 1rem;font-size:.78rem}
+.player{
+  background:linear-gradient(165deg,var(--surface-2),var(--surface));
+  border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:1.6rem;box-shadow:0 30px 70px rgba(0,0,0,.45);
+}
+.player-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.3rem}
+.player-head .label{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:.55rem}
+.player-head .time{font-size:.78rem;color:var(--muted);letter-spacing:.1em}
+.player-art{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:
+  radial-gradient(70% 90% at 30% 20%,rgba(224,122,75,.28),transparent 60%),
+  linear-gradient(150deg,#241A13,#0E0A08);
+  aspect-ratio:16/9;display:grid;place-items:center;margin-bottom:1.3rem}
+.player-art .disc{width:104px;height:104px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2A201A,#0D0A08 70%);box-shadow:0 14px 34px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.09);display:grid;place-items:center;animation:spin 14s linear infinite}
+.player-art .disc::before{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-radial-gradient(circle at 50% 50%,rgba(255,255,255,.08) 0 1px,transparent 1px 4px)}
+.player-art .disc::after{content:"";width:34%;aspect-ratio:1;border-radius:50%;background:var(--rose);box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.player-title{font-family:'Changa',sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:-.01em;text-transform:uppercase}
+.player-sub{color:var(--muted);font-size:.88rem;margin-top:.2rem}
+.player .eq{margin:1.3rem 0}
+.player-controls{display:flex;align-items:center;justify-content:center;gap:1.1rem}
+.pbtn{width:46px;height:46px;border-radius:50%;border:1px solid var(--line-strong);background:rgba(255,255,255,.02);color:var(--sand);display:grid;place-items:center;cursor:pointer;transition:.3s}
+.pbtn:hover{border-color:var(--sand);background:rgba(255,255,255,.06)}
+.pbtn svg{width:18px;height:18px;fill:currentColor}
+.pbtn.main{width:60px;height:60px;background:var(--rose);border-color:var(--rose);color:#1A120B}
+.pbtn.main:hover{background:var(--rose-2)}
+.pbtn.main svg{width:22px;height:22px}
+.progress{height:4px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:1.3rem}
+.progress i{display:block;height:100%;width:38%;border-radius:99px;background:linear-gradient(90deg,var(--rose),var(--gold));animation:progress 24s linear infinite}
+@keyframes progress{from{width:0%}to{width:100%}}
+
+/* ---------- jordan ---------- */
+.jordan-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.jordan-ar{font-family:'Rakkas',serif;font-size:clamp(3rem,6vw,5rem);color:var(--rose);line-height:1.1}
+.jordan-ar small{display:block;font-family:'Almarai',sans-serif;font-size:.9rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-top:.8rem}
+.collage{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:1rem}
+.collage figure{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(230,215,190,.2)}
+.collage figure:nth-child(1){grid-column:span 2;grid-row:span 2}
+.collage figure:nth-child(2){grid-column:span 2}
+.collage figure:nth-child(3){grid-column:span 1}
+.collage figure:nth-child(4){grid-column:span 1}
+.collage-type{
+  grid-column:span 4;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  padding:1.2rem 1.8rem;border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(90deg,rgba(224,122,75,.14),transparent 55%),var(--surface);
+}
+.collage-type .ar{font-family:'Rakkas',serif;font-size:2.6rem;line-height:1;color:var(--rose)}
+.collage-type .en{color:var(--muted);font-size:.82rem;letter-spacing:.18em;text-transform:uppercase}
+.collage img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease);filter:saturate(.95) brightness(1.12)}
+.collage figure:nth-child(1) img{object-position:center 72%}
+.collage figure:nth-child(4) img{object-position:center 62%}
+.collage figure:hover img{transform:scale(1.06)}
+.collage figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:2.1rem 1rem .85rem;
+  background:linear-gradient(0deg,rgba(11,9,8,.92),rgba(11,9,8,.35) 60%,transparent);
+  font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sand);
+  text-shadow:0 1px 8px rgba(0,0,0,.65);
+}
+.pattern-band{display:block;width:100%;height:26px;margin-top:clamp(2.5rem,5vw,4rem);color:var(--rose);opacity:.7}
+.jordan-note{display:flex;flex-wrap:wrap;gap:.6rem 2rem;align-items:center;margin-top:2rem;color:var(--muted);font-size:.86rem;letter-spacing:.06em;text-transform:uppercase}
+.jordan-note .ar{font-size:1.15rem;color:var(--sand);letter-spacing:0;text-transform:none}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.contact-details{margin-top:2.2rem;display:grid;gap:1.1rem}
+.contact-item{display:flex;gap:1rem;align-items:flex-start}
+.contact-item .ico{width:42px;height:42px;flex:none;border-radius:12px;border:1px solid var(--line-strong);display:grid;place-items:center;color:var(--rose)}
+.contact-item .ico svg{width:18px;height:18px}
+.contact-item .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.contact-item .v{color:var(--sand);font-size:1rem;margin-top:.15rem}
+.contact-note{margin-top:2rem;padding:1rem 1.2rem;border:1px dashed var(--line-strong);border-radius:14px;color:var(--muted);font-size:.86rem}
+.form{background:linear-gradient(165deg,var(--surface-2),var(--surface));border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(1.4rem,3vw,2.2rem)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.field input,.field select,.field textarea{
+  width:100%;background:var(--bg-2);border:1px solid var(--line);border-radius:12px;
+  padding:.95rem 1rem;color:var(--ink);font:inherit;font-size:.95rem;
+  transition:border-color .3s,box-shadow .3s;appearance:none;
+}
+.field textarea{min-height:120px;resize:vertical}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23A79B8B' stroke-width='1.6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--rose);box-shadow:0 0 0 3px rgba(224,122,75,.18)}
+.field ::placeholder{color:#6E655B}
+.form-msg{display:none;margin-top:1rem;color:var(--green);font-size:.9rem}
+.form-msg.show{display:block}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);background:var(--bg-2);padding:clamp(3rem,6vw,4.5rem) 0 2rem;margin-top:2rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem}
+.footer-brand p{color:var(--muted);font-size:.92rem;margin-top:1rem;max-width:32ch}
+.footer-col h4{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:1.1rem;font-weight:500}
+.footer-col ul{list-style:none;display:grid;gap:.7rem}
+.footer-col a{color:var(--sand);text-decoration:none;font-size:.93rem;transition:color .25s}
+.footer-col a:hover{color:var(--rose)}
+.footer-bottom{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;
+  border-top:1px solid var(--line);margin-top:3rem;padding-top:1.6rem;
+  color:var(--muted);font-size:.82rem;
+}
+.footer-bottom .ar{font-size:.95rem;color:var(--sand)}
+.socials{display:flex;gap:.6rem;margin-top:1.2rem}
+.socials a{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;color:var(--sand);transition:.3s}
+.socials a:hover{background:var(--rose);border-color:var(--rose);color:#1A120B;transform:translateY(-2px)}
+.socials svg{width:16px;height:16px;fill:currentColor}
+
+/* ---------- misc ---------- */
+.grain{
+  position:fixed;inset:0;z-index:200;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.to-top{
+  position:fixed;right:1.4rem;bottom:1.4rem;width:48px;height:48px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--line-strong);color:var(--sand);
+  display:grid;place-items:center;cursor:pointer;z-index:90;
+  opacity:0;pointer-events:none;transform:translateY(12px);transition:.35s var(--ease);
+}
+.to-top.show{opacity:1;pointer-events:auto;transform:none}
+.to-top:hover{background:var(--rose);border-color:var(--rose);color:#1A120B}
+.to-top svg{width:18px;height:18px}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .links{display:none}
+  .burger{display:flex}
+  .nav-cta{display:none}
+  .hero{padding:8rem 0 5rem}
+  .hero-art{position:relative;right:auto;top:auto;transform:none;width:min(340px,74vw);margin:3rem auto 0}
+  .hero-eq{position:static;transform:none;margin:1.6rem auto 0;justify-content:center}
+  .scroll-cue{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .about-fig{max-width:520px}
+  .pillars{grid-template-columns:1fr;gap:1.6rem}
+  .sound-grid{grid-template-columns:1fr}
+  .jordan-head{grid-template-columns:1fr;align-items:start}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .service-row{grid-template-columns:50px 1fr;row-gap:.4rem}
+  .service-row p{grid-column:2}
+  .service-row .tags{grid-column:2;justify-content:flex-start}
+  .row-arrow{display:none}
+}
+@media (max-width:760px){
+  .container{width:min(100% - 2.2rem,var(--container))}
+  .span-7,.span-5{grid-column:span 12}
+  .event-card{min-height:300px}
+  .collage{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+  .collage figure:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .collage figure:nth-child(2){grid-column:span 2}
+  .collage figure:nth-child(3){grid-column:span 1}
+  .collage figure:nth-child(4){grid-column:span 1}
+  .collage-type{grid-column:span 2;flex-direction:column;align-items:flex-start;justify-content:center;gap:.3rem;padding:1.1rem}
+  .collage-type .ar{font-size:2rem}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(2.4rem,11vw,3.4rem)}
+  .section-title{font-size:clamp(1.9rem,8vw,2.6rem)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .reveal{opacity:1;transform:none}
+  .marquee-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- SVG defs: symbols + Jordanian geometric patterns -->
+<svg class="svg-defs" aria-hidden="true" focusable="false">
+  <symbol id="i-star7" viewBox="0 0 100 100">
+    <path d="M50.00,3.00 L59.11,31.08 L86.75,20.70 L70.47,45.33 L95.82,60.46 L66.42,63.09 L70.39,92.35 L50.00,71.00 L29.61,92.35 L33.58,63.09 L4.18,60.46 L29.53,45.33 L13.25,20.70 L40.89,31.08 Z"/>
+  </symbol>
+  <symbol id="i-star8" viewBox="0 0 100 100">
+    <path d="M50.00,3.00 L57.65,31.52 L83.23,16.77 L68.48,42.35 L97.00,50.00 L68.48,57.65 L83.23,83.23 L57.65,68.48 L50.00,97.00 L42.35,68.48 L16.77,83.23 L31.52,57.65 L3.00,50.00 L31.52,42.35 L16.77,16.77 L42.35,31.52 Z"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M19 20L9 12l10-8v16zM5 19V5h2v14z"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M5 4l10 8-10 8V4zM17 5h2v14h-2z"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 8.2L4.4 7h15.2z"/></symbol>
+  <symbol id="i-at" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 4.9 18.7l-.7-1.4A8.5 8.5 0 1 1 20.5 12v1a1.5 1.5 0 0 1-3 0V8h-1.6v.6A4.4 4.4 0 1 1 12 16.4a4.4 4.4 0 0 1-1.2-.2l.4 1.5A5.9 5.9 0 1 0 17.9 12v-1a3 3 0 0 0 6 0V9.7A10 10 0 0 0 12 2zm0 13.2a2.9 2.9 0 1 1 0-5.8 2.9 2.9 0 0 1 0 5.8z"/></symbol>
+  <pattern id="p-bedouin" width="48" height="24" patternUnits="userSpaceOnUse">
+    <path d="M0 12 L12 2 L24 12 L12 22 Z" fill="none" stroke="#E07A4B" stroke-opacity=".55" stroke-width="1.2"/>
+    <circle cx="12" cy="12" r="1.5" fill="#E07A4B" fill-opacity=".55"/>
+    <path d="M24 12 L36 2 L48 12 L36 22 Z" fill="none" stroke="#E07A4B" stroke-opacity=".55" stroke-width="1.2"/>
+    <circle cx="36" cy="12" r="1.5" fill="#E07A4B" fill-opacity=".55"/>
+  </pattern>
+  <pattern id="p-stars" width="140" height="140" patternUnits="userSpaceOnUse">
+    <path d="M50.00,3.00 L57.65,31.52 L83.23,16.77 L68.48,42.35 L97.00,50.00 L68.48,57.65 L83.23,83.23 L57.65,68.48 L50.00,97.00 L42.35,68.48 L16.77,83.23 L31.52,57.65 L3.00,50.00 L31.52,42.35 L16.77,16.77 L42.35,31.52 Z"
+          transform="translate(30,30) scale(0.8)" fill="none" stroke="#E6D7BE" stroke-opacity=".14" stroke-width="1"/>
+  </pattern>
+</svg>
+
+<a class="sr-only" href="#main" style="position:absolute;left:-9999px">Skip to content</a>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top" aria-label="Inspiration Vibes — home">
+      <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="none" stroke="#E07A4B" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#E6D7BE" stroke-opacity=".35" stroke-width="1"/>
+        <use href="#i-star7" x="22" y="22" width="56" height="56" fill="#E07A4B"/>
+      </svg>
+      <span class="brand-name">Inspiration<em>Vibes</em></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#events">Events</a>
+      <a href="#sound">Sound</a>
+      <a href="#jordan">Jordan</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:.8rem">
+      <a class="btn btn-primary nav-cta" href="#contact">Book now</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <span class="ar">أهلاً وسهلاً</span>
+  <nav aria-label="Mobile">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#events">Events</a>
+    <a href="#sound">Sound</a>
+    <a href="#jordan">Jordan</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="btn btn-primary" href="#contact">Book an event</a>
+</div>
+
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="assets/img/dj.jpg" alt="" fetchpriority="high">
+  </div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="eyebrow reveal">Event management &amp; DJ collective <span class="ar">· عمّان، الأردن</span></div>
+      <h1 class="reveal reveal-d1">
+        <span class="line">Inspiration</span>
+        <span class="line outline">Vibes</span>
+      </h1>
+      <div class="hero-ar reveal reveal-d2">ليالٍ لا تُنسى</div>
+      <p class="lead reveal reveal-d2">We plan, produce and soundtrack Jordan's boldest nights — from Amman rooftops to the canyons of Petra.</p>
+      <div class="hero-ctas reveal reveal-d3">
+        <a class="btn btn-primary" href="#contact">Book an event
+          <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#services">Explore services</a>
+      </div>
+      <div class="hero-meta reveal reveal-d3">
+        <span class="dot"><i class="live-dot"></i> Now booking</span>
+        <span>Weddings</span><span>Festivals</span><span>Corporate</span><span>Private</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-art reveal" aria-hidden="true">
+    <div class="vinyl">
+      <div class="vinyl-label"><svg><use href="#i-star7"/></svg></div>
+      <div class="vinyl-hole"></div>
+    </div>
+    <div class="hero-eq eq" data-bars="26"></div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-group">
+      <span>Ahlan wa Sahlan</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">أهلاً وسهلاً</span><svg><use href="#i-star8"/></svg>
+      <span>Weddings</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">حفلات</span><svg><use href="#i-star8"/></svg>
+      <span>Festivals</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">مهرجانات</span><svg><use href="#i-star8"/></svg>
+      <span>Corporate</span><svg><use href="#i-star8"/></svg>
+      <span>Dabke</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">دبكة</span><svg><use href="#i-star8"/></svg>
+      <span>House</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">موسيقى</span><svg><use href="#i-star8"/></svg>
+      <span>Private events</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">ليالٍ لا تُنسى</span><svg><use href="#i-star8"/></svg>
+      <span>Amman</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">عمّان</span><svg><use href="#i-star8"/></svg>
+    </div>
+    <div class="marquee-group">
+      <span>Ahlan wa Sahlan</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">أهلاً وسهلاً</span><svg><use href="#i-star8"/></svg>
+      <span>Weddings</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">حفلات</span><svg><use href="#i-star8"/></svg>
+      <span>Festivals</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">مهرجانات</span><svg><use href="#i-star8"/></svg>
+      <span>Corporate</span><svg><use href="#i-star8"/></svg>
+      <span>Dabke</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">دبكة</span><svg><use href="#i-star8"/></svg>
+      <span>House</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">موسيقى</span><svg><use href="#i-star8"/></svg>
+      <span>Private events</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">ليالٍ لا تُنسى</span><svg><use href="#i-star8"/></svg>
+      <span>Amman</span><svg><use href="#i-star8"/></svg>
+      <span class="ar">عمّان</span><svg><use href="#i-star8"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-copy">
+        <div class="eyebrow reveal">The vibe <span class="ar">· أهلاً وسهلاً</span></div>
+        <h2 class="section-title reveal reveal-d1">Hospitality is our <span class="accent">sound system</span></h2>
+        <p class="reveal reveal-d2">Inspiration Vibes is an Amman-based event management and DJ collective. We grew up on dabke lines, wedding zaffas and Amman's rooftop summers — and we bring that same warmth to every stage we build.</p>
+        <p class="reveal reveal-d3">From the first invitation to the last track, <strong>we handle the details</strong> so you can be present for all of it.</p>
+      </div>
+      <figure class="about-fig reveal reveal-d2">
+        <div class="frame">
+          <img src="assets/img/petra.jpg" alt="The Treasury at Petra, carved into rose stone" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="fig-cap"><span>The Treasury · Petra</span><span>Jordan</span></figcaption>
+      </figure>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="num">01</div>
+        <h3>Event design</h3>
+        <p>Concepts, venues, vendors and guest experience — designed around your night, not a template.</p>
+      </div>
+      <div class="pillar reveal reveal-d1">
+        <div class="num">02</div>
+        <h3>DJ &amp; sound</h3>
+        <p>Selectors and sound systems that read the room: dabke, Arabic pop, house, techno and everything between.</p>
+      </div>
+      <div class="pillar reveal reveal-d2">
+        <div class="num">03</div>
+        <h3>Production</h3>
+        <p>Lighting, staging, visuals and the small details that make a room feel electric.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="eyebrow reveal">What we do</div>
+    <h2 class="section-title reveal reveal-d1">From the first invite<br>to the <span class="accent">last track</span></h2>
+    <div class="services-list">
+      <a class="service-row reveal" href="#contact">
+        <span class="num">01</span>
+        <h3>Event management</h3>
+        <p>Full-service planning and production: venues, vendors, staging, timing and guest experience.</p>
+        <div class="tags"><span class="tag">Weddings</span><span class="tag">Corporate</span><span class="tag">Festivals</span><span class="tag">Private</span></div>
+        <span class="row-arrow"><svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="service-row reveal" href="#contact">
+        <span class="num">02</span>
+        <h3>DJ &amp; sound</h3>
+        <p>Resident selectors, booths and sound systems — curated to the room, the crowd and the moment.</p>
+        <div class="tags"><span class="tag">Dabke</span><span class="tag">House</span><span class="tag">Techno</span><span class="tag">Amapiano</span></div>
+        <span class="row-arrow"><svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="service-row reveal" href="#contact">
+        <span class="num">03</span>
+        <h3>Lighting &amp; stage</h3>
+        <p>Lighting design, LED, visuals and stage build — atmosphere you can feel before the first beat.</p>
+        <div class="tags"><span class="tag">Stage</span><span class="tag">Visuals</span><span class="tag">LED</span><span class="tag">Rigging</span></div>
+        <span class="row-arrow"><svg><use href="#i-arrow"/></svg></span>
+      </a>
+      <a class="service-row reveal" href="#contact">
+        <span class="num">04</span>
+        <h3>Planning &amp; production</h3>
+        <p>Budgets, timelines, permits and coordination — the unglamorous work that makes the night look effortless.</p>
+        <div class="tags"><span class="tag">Budget</span><span class="tag">Timeline</span><span class="tag">Permits</span></div>
+        <span class="row-arrow"><svg><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVENTS ================= -->
+<section class="section events" id="events">
+  <div class="container">
+    <div class="eyebrow reveal">Nights we craft</div>
+    <h2 class="section-title reveal reveal-d1">Every kind of night,<br>done <span class="accent">properly</span></h2>
+    <div class="events-grid">
+      <article class="event-card tall span-7 reveal">
+        <img src="assets/img/wedding.jpg" alt="A Jordanian wedding procession with flags and a flower-decorated car" loading="lazy" decoding="async">
+        <div class="kicker">Weddings &amp; farah</div>
+        <h3>Zaffa, dabke &amp; a full dance floor</h3>
+        <p>From the zaffa entrance to the last cut, we build weddings that feel like the family stories you'll tell for years.</p>
+      </article>
+      <article class="event-card typographic span-5 reveal reveal-d1">
+        <svg class="skyline" viewBox="0 0 400 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+          <path d="M0 120 V84 h26 V64 h18 v20 h24 V50 h30 v34 h20 V62 h18 v22 h26 V44 h28 v40 h22 V70 h18 v14 h28 V56 h26 v28 h24 V74 h18 v10 h26 V84 h24 v36 Z" fill="currentColor"/>
+        </svg>
+        <div class="kicker">Corporate &amp; launches</div>
+        <div class="big">Amman<br><em>after dark</em></div>
+        <p>Precise, polished, on brand — gala dinners, product reveals and milestones, in the city that never quite sleeps.</p>
+      </article>
+      <article class="event-card span-5 reveal">
+        <img src="assets/img/concert.jpg" alt="A night festival crowd facing a brightly lit stage" loading="lazy" decoding="async">
+        <div class="kicker">Festivals &amp; concerts</div>
+        <h3>Stages under the desert sky</h3>
+        <p>Sound, light and crowd flow for open-air nights — built to handle scale without losing the intimacy.</p>
+      </article>
+      <article class="event-card span-7 reveal reveal-d1">
+        <img src="assets/img/dj.jpg" alt="A DJ's hands on a mixer under red club light" loading="lazy" decoding="async">
+        <div class="kicker">Private &amp; rooftops</div>
+        <h3>Intimate sets, late nights</h3>
+        <p>Close rooms, good people and a selector who knows exactly when to lift the night — above Amman's skyline.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOUND ================= -->
+<section class="section sound" id="sound">
+  <div class="container">
+    <div class="sound-grid">
+      <div>
+        <div class="eyebrow reveal">The sound</div>
+        <h2 class="section-title reveal reveal-d1">One room.<br><span class="accent">Every genre.</span></h2>
+        <p class="lead reveal reveal-d2">Our residents carry the full spectrum of a Jordanian night — from the first dabke step to the last house cut. We build sets around your crowd, not around a playlist.</p>
+        <div class="genre-tags reveal reveal-d3">
+          <span class="tag">Dabke</span><span class="tag">Arabic pop</span><span class="tag">Shaabi</span>
+          <span class="tag">House</span><span class="tag">Techno</span><span class="tag">Amapiano</span>
+          <span class="tag">Hip-hop</span><span class="tag">Classics</span>
+        </div>
+      </div>
+      <div class="player reveal reveal-d2" id="player">
+        <div class="player-head">
+          <span class="label"><i class="live-dot"></i> Now spinning</span>
+          <span class="time">RESIDENT SET</span>
+        </div>
+        <div class="player-art">
+          <div class="disc"></div>
+        </div>
+        <div class="player-title">Desert House — Vol. 1</div>
+        <div class="player-sub">Resident set · Amman · demo mix</div>
+        <div class="eq" id="soundEq" data-bars="34"></div>
+        <div class="player-controls">
+          <button class="pbtn" aria-label="Previous"><svg><use href="#i-prev"/></svg></button>
+          <button class="pbtn main" id="playBtn" aria-label="Pause"><svg><use href="#i-pause"/></svg></button>
+          <button class="pbtn" aria-label="Next"><svg><use href="#i-next"/></svg></button>
+        </div>
+        <div class="progress" aria-hidden="true"><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JORDAN ================= -->
+<section class="section jordan" id="jordan">
+  <div class="container">
+    <div class="jordan-head">
+      <div>
+        <div class="eyebrow reveal">Rooted in Jordan</div>
+        <h2 class="section-title reveal reveal-d1">The land sets<br>the <span class="accent">tone</span></h2>
+      </div>
+      <div>
+        <div class="jordan-ar reveal reveal-d2">أهلاً وسهلاً<small>generosity &amp; joy</small></div>
+        <p class="lead reveal reveal-d3" style="margin-top:1.2rem">We draw from Jordanian hospitality — ahlan wa sahlan — and from the land itself: Petra's rose stone, Wadi Rum's silence, Jerash's columns, Amman's energy. Every event we produce carries a piece of that.</p>
+      </div>
+    </div>
+    <div class="collage">
+      <figure class="reveal">
+        <img src="assets/img/petra-night.jpg" alt="Candles lighting a path through Petra at night" loading="lazy" decoding="async">
+        <figcaption>Petra by night</figcaption>
+      </figure>
+      <figure class="reveal reveal-d1">
+        <img src="assets/img/wadi-rum.jpg" alt="Wadi Rum desert landscape" loading="lazy" decoding="async">
+        <figcaption>Wadi Rum</figcaption>
+      </figure>
+      <figure class="reveal reveal-d2">
+        <img src="assets/img/jerash.jpg" alt="Ancient columns at Jerash" loading="lazy" decoding="async">
+        <figcaption>Jerash</figcaption>
+      </figure>
+      <figure class="reveal reveal-d3">
+        <img src="assets/img/dead-sea.jpg" alt="The Dead Sea at the Jordanian shore" loading="lazy" decoding="async">
+        <figcaption>Dead Sea</figcaption>
+      </figure>
+      <div class="collage-type reveal reveal-d2">
+        <span class="ar">الأردن</span>
+        <span class="en">Jordan, everywhere we go</span>
+      </div>
+    </div>
+    <svg class="pattern-band" aria-hidden="true"><rect width="100%" height="100%" fill="url(#p-bedouin)"/></svg>
+    <div class="jordan-note reveal">
+      <span class="ar">الكرم والفرح</span>
+      <span>Generosity &amp; joy in every detail</span>
+      <span>·</span>
+      <span>Amman · Petra · Wadi Rum · Jerash · Dead Sea</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow reveal">Book the night</div>
+        <h2 class="section-title reveal reveal-d1">Tell us about<br>your <span class="accent">night</span></h2>
+        <p class="lead reveal reveal-d2">Date, venue, crowd, mood — send what you have. We'll take it from there.</p>
+        <div class="contact-details reveal reveal-d3">
+          <div class="contact-item">
+            <span class="ico"><svg><use href="#i-pin"/></svg></span>
+            <div><div class="k">Based in</div><div class="v">Amman, Jordan <span class="ar-body" style="color:var(--muted)">· عمّان</span></div></div>
+          </div>
+          <div class="contact-item">
+            <span class="ico"><svg><use href="#i-mail"/></svg></span>
+            <div><div class="k">Email</div><div class="v">hello@inspirationvibes.jo</div></div>
+          </div>
+          <div class="contact-item">
+            <span class="ico"><svg><use href="#i-at"/></svg></span>
+            <div><div class="k">Follow the vibe</div><div class="v">Instagram · TikTok · SoundCloud</div></div>
+          </div>
+        </div>
+        <div class="contact-note reveal reveal-d3">Demo form — wire it to your inbox or WhatsApp when you're ready to take bookings.</div>
+      </div>
+      <form class="form reveal reveal-d2" id="bookForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email or phone</label>
+            <input id="email" name="contact" type="text" placeholder="How do we reach you?" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="type">Event type</label>
+            <select id="type" name="type" required>
+              <option value="" disabled selected>Choose one</option>
+              <option>Wedding</option><option>Corporate</option><option>Festival</option>
+              <option>Concert</option><option>Private party</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="date">Date</label>
+            <input id="date" name="date" type="date">
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">The night you imagine</label>
+          <textarea id="message" name="message" placeholder="Venue, crowd size, mood, must-play songs — anything helps."></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Send the brief
+          <svg><use href="#i-arrow"/></svg></button>
+        <div class="form-msg" id="formMsg" role="status">Shukran! Your brief is in — we'll be in touch shortly.</div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Inspiration Vibes — back to top">
+          <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="48" fill="none" stroke="#E07A4B" stroke-width="2.5"/>
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#E6D7BE" stroke-opacity=".35" stroke-width="1"/>
+            <use href="#i-star7" x="22" y="22" width="56" height="56" fill="#E07A4B"/>
+          </svg>
+          <span class="brand-name">Inspiration<em>Vibes</em></span>
+        </a>
+        <p>Nights that move Jordan. Event management, DJ sets and production from the heart of Amman.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3zm6.9-11.1a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 2h-3v13.2a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.6a5.9 5.9 0 1 0 4.8 5.8V8.6a7 7 0 0 0 4.2 1.4V7a4.2 4.2 0 0 1-4.2-4.2z"/></svg></a>
+          <a href="#" aria-label="SoundCloud"><svg viewBox="0 0 24 24"><path d="M2 14.5a1.5 1.5 0 0 1 3 0v3a1.5 1.5 0 0 1-3 0zm4-2a1.5 1.5 0 0 1 3 0v5a1.5 1.5 0 0 1-3 0zm4-1a1.5 1.5 0 0 1 3 0v6a1.5 1.5 0 0 1-3 0zm4-1.5a1.5 1.5 0 0 1 3 0v7.5a1.5 1.5 0 0 1-3 0zM20 8.2a5.4 5.4 0 0 0-5.4 5.3h2.6a1.5 1.5 0 0 1 0 3h-.3a1.5 1.5 0 0 1-1.4-1.1A5.4 5.4 0 0 0 20 8.2z"/></svg></a>
+          <a href="#" aria-label="Spotify"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.7 1.4 0 0 1-1 .3c-2.7-1.6-6.1-2-10.1-1.1a.7 1.4 0 1 1-.3-1.4c4.4-1 8.2-.5 11.2 1.3.3.2.4.6.2.9zm1.3-3a.9 1.8 0 0 1-1.2.3c-3.1-1.9-7.7-2.4-11.3-1.3a.9 1.8 0 1 1-.5-1.7c4.1-1.2 9.2-.7 12.8 1.5.4.2.5.8.2 1.2zm.1-3.1C14.4 8.3 8.9 8 5.4 9.1a1 2 0 1 1-.6-2c4-1.2 10-.9 13.9 1.4a1 2 0 0 1-1 1.8z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#sound">Sound</a></li>
+          <li><a href="#jordan">Jordan</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Event management</a></li>
+          <li><a href="#services">DJ &amp; sound</a></li>
+          <li><a href="#services">Lighting &amp; stage</a></li>
+          <li><a href="#services">Planning &amp; production</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#contact">Amman, Jordan</a></li>
+          <li><a href="mailto:hello@inspirationvibes.jo">hello@inspirationvibes.jo</a></li>
+          <li><a href="#contact">Instagram</a></li>
+          <li><a href="#contact">TikTok</a></li>
+          <li><a href="#contact">SoundCloud</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Inspiration Vibes · All rights reserved</span>
+      <span class="ar">صُنع في عمّان</span>
+      <span>Photography: Wikimedia Commons contributors (CC BY-SA / CC0)</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top"><svg><use href="#i-up"/></svg></button>
+<div class="grain" aria-hidden="true"></div>
+
+<script>
+(function(){
+  "use strict";
+  var nav=document.getElementById('nav'), toTop=document.getElementById('toTop');
+  var mm=document.getElementById('mobileMenu'), burger=document.getElementById('burger');
+
+  function onScroll(){
+    nav.classList.toggle('scrolled',window.scrollY>24);
+    toTop.classList.toggle('show',window.scrollY>600);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  // mobile menu
+  burger.addEventListener('click',function(){
+    var open=mm.classList.toggle('open');
+    document.body.classList.toggle('no-scroll',open);
+    mm.setAttribute('aria-hidden',String(!open));
+    burger.setAttribute('aria-expanded',String(open));
+  });
+  mm.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      mm.classList.remove('open');document.body.classList.remove('no-scroll');
+      mm.setAttribute('aria-hidden','true');burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  // scroll reveal
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  // equalizer bars
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.eq').forEach(function(eq){
+    var n=parseInt(eq.dataset.bars||'28',10);
+    for(var i=0;i<n;i++){
+      var s=document.createElement('span');
+      if(!reduce){
+        s.style.animationDuration=(0.55+Math.random()*0.95).toFixed(2)+'s';
+        s.style.animationDelay=(-Math.random()).toFixed(2)+'s';
+      }
+      eq.appendChild(s);
+    }
+  });
+
+  // sound player toggle
+  var player=document.getElementById('player'), playBtn=document.getElementById('playBtn');
+  var soundEq=document.getElementById('soundEq');
+  if(playBtn){
+    var playing=true;
+    playBtn.addEventListener('click',function(){
+      playing=!playing;
+      soundEq.classList.toggle('paused',!playing);
+      player.classList.toggle('paused',!playing);
+      playBtn.innerHTML='<svg><use href="#'+(playing?'i-pause':'i-play')+'"/></svg>';
+      playBtn.setAttribute('aria-label',playing?'Pause':'Play');
+    });
+  }
+
+  // active nav link
+  var sections=['about','services','events','sound','jordan','contact'];
+  var links={};
+  document.querySelectorAll('.links a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var navIO=new IntersectionObserver(function(entries){
+    var found=null;
+    entries.forEach(function(e){ if(e.isIntersecting) found=e.target.id; });
+    Object.keys(links).forEach(function(k){links[k].classList.remove('active');});
+    if(found && links[found]) links[found].classList.add('active');
+  },{rootMargin:'-45% 0px -50% 0px'});
+  sections.forEach(function(id){var el=document.getElementById(id); if(el) navIO.observe(el);});
+
+  // booking form
+  var form=document.getElementById('bookForm'), msg=document.getElementById('formMsg');
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(!form.checkValidity()){form.reportValidity();return;}
+      msg.classList.add('show');
+      form.reset();
+    });
+  }
+
+  // back to top
+  toTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
